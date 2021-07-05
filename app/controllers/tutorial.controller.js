@@ -23,7 +23,7 @@ exports.create = (req, res) => {
     Tutorial.create(tutorial).then(data => {
         res.send(data);
     })
-    .cacth(err => {
+    .catch(err => {
         res.status(500).send({
             message: 
             err.message || "Ocorreu algum erro ao criar o tutorial."
@@ -40,7 +40,7 @@ exports.findAll = (req, res) => {
     Tutorial.findAll({ where: condition}).then(data => {
         res.send(data);
     })
-    .cacth(err => {
+    .catch(err => {
         res.status(500).send({
             message: 
             err.message || "Ocorreu algum erro ao recuperar os tutoriais."
@@ -55,7 +55,7 @@ exports.findOne = (req, res) => {
     Tutorial.findByPk(id).then(data => {
         res.send(data);
     })
-    .cacth(err => {
+    .catch(err => {
         res.status(500).send({
             message: "Erro ao recuperar o tutorial com id=" + id
         });
@@ -82,7 +82,7 @@ exports.update = (req, res) => {
             });
         }
     })
-    .cacth(err => {
+    .catch(err => {
         res.status(500).send({
             message: "Erro ao atualizar Tutorial com id=" + id
         });
@@ -109,7 +109,7 @@ exports.delete = (req, res) => {
             });
         }
     })
-    .cacth(err => {
+    .catch(err => {
         res.status(500).send({
             message: "Não foi possível excluir o tutorial com id" + id
         });
@@ -125,7 +125,7 @@ exports.deleteAll = (requ, res) => {
     .then(nums => {
         res.send({message: '${nums} Tutoriais foram deletados com sucesso!.'});
     })
-    .cacth(err => {
+    .catch(err => {
         res.status(500).send({
             message: err.message || "Ocorreu algum erro ao remover todos os tutoriais."
         });
